@@ -1,0 +1,12 @@
+# Build outputs
+Build/
+*.exe
+*.jar
+
+# Python
+__pycache__/
+.venv/
+
+# Java
+out/
+target/
