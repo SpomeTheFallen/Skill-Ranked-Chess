@@ -1,11 +1,10 @@
 # Build outputs
 Build/
-*.exe
-*.jar
 
 # Python
 __pycache__/
 .venv/
+dist/
 
 # Java
 out/
