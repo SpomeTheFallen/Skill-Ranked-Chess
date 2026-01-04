@@ -5,7 +5,7 @@ import Main.Main;
 import java.io.*;
 import java.util.ArrayList;
 
-public class Stockfish extends PGN_Reader implements Runnable  {
+public class Stockfish extends PGN_Reader{
 
     private boolean mate = false;
 
@@ -20,9 +20,8 @@ public class Stockfish extends PGN_Reader implements Runnable  {
         super(PGN);
     }
 
-    @Override
     public void run() {
-        File stockfishPath = new File(Main.jarDir, "Engine/stockfish-windows-x86-64-avx2.exe");
+        File stockfishPath = new File(Main.baseDir, "Engine/stockfish-windows-x86-64-avx2.exe");
         String bestMove = "";
         Integer secondEval = 0;
         int eval = 0;

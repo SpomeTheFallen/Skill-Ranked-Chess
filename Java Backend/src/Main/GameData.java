@@ -245,10 +245,10 @@ public class GameData {
     public void export_GameData(Stockfish stockfish){
         Random random = new Random();
         String code = String.valueOf(random.nextInt(100000, 999999));
-        File codeFilePath = new File(Main.jarDir, "Data/GameCode.txt");
+        File codeFilePath = new File(Main.baseDir, "Data/GameCode.txt");
         String fileName = code + "_Game.json";
-        File jsonFilePath = new File(Main.jarDir, "Data/JsonFiles/" + fileName);
-        File historyFilePath = new File(Main.jarDir, "Data/GameHistory.txt");
+        File jsonFilePath = new File(Main.baseDir, "Data/JsonFiles/" + fileName);
+        File historyFilePath = new File(Main.baseDir, "Data/GameHistory.txt");
         LocalDate date = LocalDate.now();
 
 

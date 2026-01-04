@@ -37,7 +37,7 @@ public class Ranking {
     }
 
     private static int initRanking() {
-        File gameHistoryPath = new File(Main.jarDir, "Data/GameHistory.txt");
+        File gameHistoryPath = new File(Main.baseDir, "Data/GameHistory.txt");
         int points = 1000;
         try (BufferedReader gameHistoryReader = new BufferedReader(new FileReader(gameHistoryPath))) {
             String line = "";
@@ -52,7 +52,7 @@ public class Ranking {
 
             for (String code : gameCodes) {
                 String fileName = code + "_Game.json";
-                File jsonFilePath = new File(Main.jarDir, "Data/JsonFiles/" + fileName);
+                File jsonFilePath = new File(Main.baseDir, "Data/JsonFiles/" + fileName);
                 try (BufferedReader prevJsonReader = new BufferedReader(new FileReader(jsonFilePath))) {
                     Gson gson = new Gson();
                     GameData game = gson.fromJson(prevJsonReader, GameData.class);

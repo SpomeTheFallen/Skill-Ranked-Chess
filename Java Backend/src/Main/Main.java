@@ -7,13 +7,20 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 
 public class Main {
-    public static File jarDir;
+    public static File baseDir;
 
     public static void main(String[] args) throws URISyntaxException {
 
-        jarDir = new File(Main.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getParentFile();
+        String path = Main.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath();
 
-        File pgnImportPath = new File(jarDir, "Data/pgn.txt");
+        if(path.endsWith(".jar")) {
+            baseDir = new File(Main.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getParentFile();
+        }
+        else{
+            baseDir = new File(Main.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getParentFile().getParentFile().getParentFile().getParentFile();
+        }
+
+        File pgnImportPath = new File(baseDir, "Data/pgn.txt");
 
         try(BufferedReader pgnImportReader = new BufferedReader(new FileReader(pgnImportPath))){
             String line = "";
